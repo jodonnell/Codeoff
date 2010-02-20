@@ -1,0 +1,19 @@
+<html>
+<head>
+<script type="text/javascript" src="http://localhost:9339/resources/jquery-1.4.2.js"></script>
+
+<script type="text/javascript">
+
+function send_data() {
+    $.post("ajax/send_buffer/", { value:$("#my_buffer")[0].value});
+}
+</script>
+
+</head>
+
+<body>
+<textarea rows="55" cols="102" id="my_buffer" onkeyup="send_data();"></textarea>
+<textarea rows="55" cols="102" readonly disabled></textarea>
+<input type="submit" value="Run">
+</body>
+</html>
