@@ -1,0 +1,46 @@
+
+* Codeoff
+** if you hack the server you get 100 points.
+** open ended questions, users vote on best answer
+** users can ask questions
+** Need to be extremely security consiousce.
+** Money making
+*** Let people search for best by area if they pay money
+*** Have people take job interview questions judged by the community for money.
+*** Companies could ask challenges that are problems they are actually trying to solve.
+*** Ask their own questions and have them rated upon for a job interview.  Must close uploads before voting begins.
+**** In this case its like coders compete for jobs!!!
+** Codeoff challanges 
+*** How to force people to use ui rather than there own editor
+**** You could use emacs plugin encourage others.
+**** Give bonus for frequency of typing
+*** Send updates as much as possible that has reasonable response time.
+*** Capture compile histories
+**** Force them to import a module that has a key to use as a hash to solution?
+***** Only would help obsfucate a little bit, wouldn't show real solution, but hashed solution.
+*** Would capture fastest answer
+**** Needs to capture updated chars per second, penalize for slowness, pastes big penalties
+*** Capture best fastest time.
+*** Caputre best meomry usage.
+*** Capture least characters.
+*** Gather best answer
+**** Users rate this
+*** When person finishes you can continue on in your own and finish yours.
+*** At end of match shows stats of you vs opponent, time space all that.
+**** Needs to update winner via message, since loser could take a while
+*** Compete for different goals
+**** Best memory usage, time limit, will capture all your compiles and get the best
+** Write emacs plugin
+*** Can compile from emacs with keystroke on server, returns output
+** If nate butler is interested tell him i am challenging people to hack the server
+** Open source code
+*** OPEN SOURCE THE DATA????????????? If challange nate butler style cannot have anything private, or code holes for that matter
+** Captcha is passing code problems.
+* Probelms
+** Timing issue, because of box having resource issues
+*** For best answers, save and run offline on a clean box, time there OMG AWESOME.
+** Need to prevent people from purposally taking up a lot of resources
+*** Can limit memory usage of each process/thread?
+*** Limit time?
+** Have people write code for the site itself and have people vote on the best implementation!!!!!!
+* HOLY SHIT IF THIS TAKES OFF THEN HOW DO YOU DEAL WITH 10,000 PEOPLE RUNNING PYTHON SCRIPTS?????
