@@ -1,0 +1,44 @@
+import rand
+
+class RunPython(object):
+    allowed_builtins = {"__builtins__":{'int':int, '__import__':__builtins__.__import__, 'str':str, 'range':range,
+                                        'zip':zip, 'xrange':xrange, 'unicode':unicode, 'type':type, 'tuple':tuple,
+                                        'sum':sum, 'slice':slice, 'round':round, 'repr':repr, 'reduce':reduce, 'pow':pow, 
+                                        'float':float, 'filter':filter, 'enumerate':enumerate, 'dict':dict, 
+                                        'bool':bool, 'abs':abs, 
+                                        'AttributeError':AttributeError, 'ValueError':ValueError, 
+                                        'ArithmeticError':ArithmeticError, 
+                                        'AssertionError':AssertionError, 'TypeError':TypeError, 'None':None, 
+                                        'ZeroDivisionError':ZeroDivisionError, 
+                                        'UnicodeError':UnicodeError, 'True':True, 'False':False, }}
+
+
+    def execute(user_answer, codeoff_answer):
+        codeOut = StringIO.StringIO()
+        codeErr = StringIO.StringIO()
+        sys.stdout = codeOut
+        sys.stderr = codeErr
+
+        test_random_answer
+
+        try:
+            exec input + '\nprint fibonnaci(6)' in allowed_builtins, {}
+        except:
+            sys.stdout = sys.__stdout__
+            sys.stderr = sys.__stderr__
+            import traceback
+            print traceback.print_exc()
+            s = codeErr.getvalue()
+
+            if s:
+                print "error:\n%s\n" % s
+
+
+        sys.stdout = sys.__stdout__
+        sys.stderr = sys.__stderr__
+
+        try:
+            if int(codeOut.getvalue()) == codeoff_answer(6):
+                print 'yay!'
+        except ValueError:
+            pass

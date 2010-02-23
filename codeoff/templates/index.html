@@ -1,19 +1,87 @@
 <html>
 <head>
-<script type="text/javascript" src="http://localhost:9339/resources/jquery-1.4.2.js"></script>
+<script type="text/javascript" src="/resources/jquery-1.4.2.js"></script>
 
 <script type="text/javascript">
 
-function send_data() {
-    $.post("ajax/send_buffer/", { value:$("#my_buffer")[0].value});
+function update() {
+    var data = { "my_buffer": $("#my_buffer")[0].value };
+    $.ajax({
+	url: "ajax/update/",
+	type: "POST",
+	data: data,
+	dataType: 'json',
+	success: function(result) {
+	    $("#challenger_buffer")[0].value = result.challenger_buffer;
+	}
+    });
 }
+
+function findChallenger() {
+    var data = {};
+    $.ajax({
+	url: "ajax/find_challenger/",
+	type: "POST",
+	data: data,
+	dataType: 'json',
+	success: function(result) {
+	    if (result.found_challenger) {
+		window.clearInterval(find_challenger_timer);
+		setUpdateInterval();
+	    }
+	}
+    });
+}
+
+$(function() {
+    $("#run").click(function() {
+	var data = { "my_buffer": $("#my_buffer")[0].value };
+	$.ajax({
+	    url: "ajax/run_program/",
+	    type: "POST",
+	    data: data,
+	    dataType: 'json',
+	    success: function(result) {
+		if (result.success)
+		    alert('You won'); // you win
+		else {
+		    if (result.error)
+			$("#output")[0].value = result.error;
+
+		    if (result.output)
+			; // show output
+		}
+	    }
+	});
+    })
+});
+
+function setUpdateInterval() {
+//    window.setInterval("update()", 10000);
+}
+
+// how can you tell if other player has dropped out?
+// omegle always keeps a connection open
+// waits 30 seconds for update, then closes connection and tries again
+
+
+// once a second send out my_buffer, get json response of challenger_buffer, new_compile, challengerDone
+{% if need_challenger %}
+    var find_challenger_timer = window.setInterval("findChallenger()", 10000);
+{% else %}
+    setUpdateInterval();
+{% endif %}
+
 </script>
 
 </head>
 
 <body>
-<textarea rows="55" cols="102" id="my_buffer" onkeyup="send_data();"></textarea>
-<textarea rows="55" cols="102" readonly disabled></textarea>
-<input type="submit" value="Run">
+Hello {{ username }}<br/>
+<textarea rows="25" cols="102" id="my_buffer"></textarea>
+<textarea rows="25" cols="102" id="challenger_buffer" readonly disabled></textarea>
+<input id="run" type="submit" value="Run">
+<br/>
+<textarea rows="25" cols="102" id="output"></textarea>
 </body>
 </html>
