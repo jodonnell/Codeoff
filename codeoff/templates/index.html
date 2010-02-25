@@ -1,8 +1,28 @@
 <html>
 <head>
 <script type="text/javascript" src="/resources/jquery-1.4.2.js"></script>
+<script type="text/javascript" src="/resources/jquery.textarea.js"></script>
 
 <script type="text/javascript">
+
+
+
+$(function() 
+  {
+      $('#my_buffer').keydown(function(event) 
+			      {
+				  // TODO probably not work in all browsers
+				  var TAB = 9;
+				  if (event.keyCode == TAB) {
+				      return 0;
+				  }
+			      });
+  });
+
+
+$(document).ready(function() {
+		    $("textarea").tabby();
+		  });
 
 function update() {
     var data = { "my_buffer": $("#my_buffer")[0].value };
@@ -78,7 +98,7 @@ function setUpdateInterval() {
 
 <body>
 Hello {{ username }}<br/>
-<textarea rows="25" cols="102" id="my_buffer"></textarea>
+    <textarea rows="25" cols="102" id="my_buffer"></textarea>
 <textarea rows="25" cols="102" id="challenger_buffer" readonly disabled></textarea>
 <input id="run" type="submit" value="Run">
 <br/>

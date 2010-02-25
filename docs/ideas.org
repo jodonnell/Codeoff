@@ -31,10 +31,10 @@
 *** How to force people to use ui rather than there own editor
 **** You could use emacs plugin encourage others.
 **** Give bonus for frequency of typing
-*** Send updates as much as possible that has reasonable response time.
-*** Capture compile histories
 **** Force them to import a module that has a key to use as a hash to solution?
 ***** Only would help obsfucate a little bit, wouldn't show real solution, but hashed solution.
+*** Send updates as much as possible that has reasonable response time.
+*** Capture compile histories
 *** Would capture fastest answer
 **** Needs to capture updated chars per second, penalize for slowness, pastes big penalties
 *** Capture best fastest time.
@@ -63,3 +63,5 @@
 **** Can limit memory usage of each process/thread?
 **** Limit time?
 *** Have people write code for the site itself and have people vote on the best implementation!
+
+WACKY - have new IDE features, suggest code based on all the code we have in repo.
