@@ -7,17 +7,16 @@ Replace these with more appropriate tests for your application.
 
 from django.test import TestCase
 
-class SimpleTest(TestCase):
-    def test_basic_addition(self):
-        """
-        Tests that 1 + 1 always equals 2.
-        """
-        self.failUnlessEqual(1 + 1, 2)
+from codeoff.pythonoff.classes.run_python import RunPython
+from codeoff.pythonoff.models import Problems
 
-__test__ = {"doctest": """
-Another way to test that 1 + 1 is equal to 2.
+class RunPythonTest(TestCase):
+    fixtures = ['test.json']
+    def test_run_python(self):
+        rp = RunPython()
+        problem = Problems.objects.all()[0]
+        success = rp.execute(problem, problem.answer)
+        self.failUnlessEqual(success, True)
 
->>> 1 + 1 == 2
-True
-"""}
-
+        success = rp.execute(problem, 'def fibonnaci(): return 0')
+        self.failIfEqual(success, True)
