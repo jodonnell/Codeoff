@@ -17,8 +17,8 @@ class Problems(models.Model):
 
     def get_test_input(self):
         if self.testing_range == SMALL_POSITIVE_INTS:
-            tests = [random.randint(1, SMALL_POSITIVE_INT_MAX) for x in range(5)]
-            tests.append(0)
+            tests = [random.randint(2, SMALL_POSITIVE_INT_MAX) for x in range(5)]
+            tests.append(1)
             return tests
 
     def cast_answer(self, inValue):
@@ -29,6 +29,7 @@ class Challenge(models.Model):
     goal = models.ForeignKey(Goals)
     problem = models.ForeignKey(Problems)
     players = models.ManyToManyField(User, through='PlayerChallenge')
+    winner = models.ForeignKey(User, null=True, related_name='winner_set')
 
 class CompileHistory(models.Model):
     compiled_code = models.TextField()

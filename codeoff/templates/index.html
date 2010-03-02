@@ -7,19 +7,6 @@
 
 
 
-$(function() 
-  {
-      $('#my_buffer').keydown(function(event) 
-			      {
-				  // TODO probably not work in all browsers
-				  var TAB = 9;
-				  if (event.keyCode == TAB) {
-				      return 0;
-				  }
-			      });
-  });
-
-
 $(document).ready(function() {
 		    $("textarea").tabby();
 		  });
@@ -48,6 +35,9 @@ function findChallenger() {
 	    if (result.found_challenger) {
 		window.clearInterval(find_challenger_timer);
 		setUpdateInterval();
+		$('#is_playing')[0].innerHTML = 'Currently playing.';
+		$('#problem')[0].innerHTML = result.problem;
+		$('#goal')[0].innerHTML = result.goal;
 	    }
 	}
     });
@@ -62,14 +52,16 @@ $(function() {
 	    data: data,
 	    dataType: 'json',
 	    success: function(result) {
+
+		if (result.output)
+		    $("#output")[0].value = result.output;
+
 		if (result.success)
 		    alert('You won'); // you win
 		else {
 		    if (result.error)
 			$("#output")[0].value = result.error;
 
-		    if (result.output)
-			; // show output
 		}
 	    }
 	});
@@ -97,8 +89,32 @@ function setUpdateInterval() {
 </head>
 
 <body>
+<div id="hello_user">
 Hello {{ username }}<br/>
-    <textarea rows="25" cols="102" id="my_buffer"></textarea>
+</div>
+
+<div id="is_playing">
+  {% if problem %}
+     Currently playing.
+  {% else %}
+     Not playing.
+  {% endif %}
+</div>
+
+<div id="problem">
+  {% if problem %}
+    {{ problem }}
+  {% endif %}
+</div>
+
+<div id="goal">
+  {% if goal %}
+    {{ goal }}
+  {% endif %}
+
+</div>
+
+<textarea rows="25" cols="102" id="my_buffer"></textarea>
 <textarea rows="25" cols="102" id="challenger_buffer" readonly disabled></textarea>
 <input id="run" type="submit" value="Run">
 <br/>

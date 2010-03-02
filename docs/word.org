@@ -18,3 +18,17 @@
 ** TODO Challenge Off
 *** TODO Run Code
 *** TODO Return errors
+*** TODO Implement winnering
+    CLOCK: [2010-02-27 Sat 01:38]--[2010-02-27 Sat 03:49] =>  2:11
+**** Recording in database
+**** Sending message to loser
+*** TODO Problems & Goals
+**** TODO Found player needs to return the problem and the goal and then display.
+** TODO Create unit tests
+*** TODO Create tests for RunPython
+    CLOCK: [2010-03-02 Tue 04:07]--[2010-03-02 Tue 04:18] =>  0:11
+*** DONE Create fixtures
+    CLOCK: [2010-03-02 Tue 03:49]--[2010-03-02 Tue 04:06] =>  0:17
+
+make output windom
+problems & goal

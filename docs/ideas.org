@@ -15,6 +15,8 @@
 *** Ask their own questions and have them rated upon for a job interview.  Must close uploads before voting begins.
 **** In this case its like coders compete for jobs!!!
 ** Codeoff challanges
+*** Problems
+**** Sort a 2mb list in 1mb of memory
 *** Rank players
 *** Rank challenges
 *** Implement more languages

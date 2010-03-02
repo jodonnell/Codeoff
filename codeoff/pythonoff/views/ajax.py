@@ -33,7 +33,7 @@ def find_challenger(request):
         player_challenge.new_challenge = False
         player_challenge.save()
         request.session['challenge_id'] = player_challenge.challenge.id
-        response = {'found_challenger':1}
+        response = {'found_challenger':1, 'problem':player_challenge.challenge.problem.problem, 'goal':player_challenge.challenge.goal.goal}
     except PlayerChallenge.DoesNotExist:
         response = {'found_challenger':0}
 
@@ -47,5 +47,10 @@ def run_program(request):
     rp = RunPython()
     success = rp.execute(challenge.problem, user_answer)
 
-    response = {'success':success, 'error':rp.error, 'output':''}
+    if success:
+        # TODO: race condition possible
+        challenge.winner = request.user
+        challenge.save()
+
+    response = {'success':success, 'error':rp.error, 'output':rp.get_user_output_string()}
     return http.HttpResponse(json.dumps(response))
