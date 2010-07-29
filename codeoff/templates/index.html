@@ -32,7 +32,7 @@ function findChallenger() {
 	data: data,
 	dataType: 'json',
 	success: function(result) {
-	    if (result.found_challenger) {
+	    if (result && result.found_challenger) {
 		window.clearInterval(find_challenger_timer);
 		setUpdateInterval();
 		$('#is_playing')[0].innerHTML = 'Currently playing.';

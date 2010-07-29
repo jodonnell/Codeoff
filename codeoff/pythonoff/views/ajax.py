@@ -43,7 +43,11 @@ def run_program(request):
     user_answer = request.POST['my_buffer']
 
     challenge_id = request.session.get('challenge_id', None)
+    if not challenge_id:
+        return http.HttpResponse('')
+
     challenge = Challenge.objects.get(pk=challenge_id)
+
     rp = RunPython()
     success = rp.execute(challenge.problem, user_answer)
 

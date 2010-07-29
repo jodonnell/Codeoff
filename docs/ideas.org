@@ -15,6 +15,12 @@
 *** Ask their own questions and have them rated upon for a job interview.  Must close uploads before voting begins.
 **** In this case its like coders compete for jobs!!!
 ** Codeoff challanges
+*** UI
+**** How to force people to use ui rather than there own editor
+***** You could use emacs plugin encourage others.
+***** Give bonus for frequency of typing
+***** Force them to import a module that has a key to use as a hash to solution?
+****** Only would help obsfucate a little bit, wouldn't show real solution, but hashed solution.
 *** Problems
 **** Sort a 2mb list in 1mb of memory
 *** Rank players
@@ -30,18 +36,14 @@
 **** Javascript
 *** Can let people challenge each other
 *** Tournements
-*** How to force people to use ui rather than there own editor
-**** You could use emacs plugin encourage others.
-**** Give bonus for frequency of typing
-**** Force them to import a module that has a key to use as a hash to solution?
-***** Only would help obsfucate a little bit, wouldn't show real solution, but hashed solution.
 *** Send updates as much as possible that has reasonable response time.
-*** Capture compile histories
-*** Would capture fastest answer
+*** Capture
+**** Capture compile histories
+**** Would capture fastest answer
 **** Needs to capture updated chars per second, penalize for slowness, pastes big penalties
-*** Capture best fastest time.
-*** Caputre best meomry usage.
-*** Capture least characters.
+**** Capture best fastest time.
+**** Caputre best meomry usage.
+**** Capture least characters.
 *** Gather best answer
 **** Users rate this
 *** When person finishes you can continue on in your own and finish yours.
@@ -50,6 +52,7 @@
 *** Users best answers (either time or memory) replace sites algorithms
 *** Compete for different goals
 **** Best memory usage, time limit, will capture all your compiles and get the best
+**** Maybe have a series of goals for a marathon challenge
 ** Write emacs plugin
 *** Can compile from emacs with keystroke on server, returns output
 ** Open source code

@@ -8,7 +8,7 @@ from codeoff.pythonoff.conf import local_settings
 
 urlpatterns = patterns('',
     # Example:
-                       (r'^$', 'codeoff.pythonoff.views.index.index'),
+#                       (r'^$', 'codeoff.pythonoff.views.index.index'),
 
                        (r'^ajax/update/$', 'codeoff.pythonoff.views.ajax.update'),
                        (r'^ajax/find_challenger/$', 'codeoff.pythonoff.views.ajax.find_challenger'),
